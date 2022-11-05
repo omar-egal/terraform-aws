@@ -46,7 +46,7 @@ module "compute" {
   source          = "./compute"
   public_sg       = module.networking.public_sg
   public_subnets  = module.networking.public_subnets
-  instance_count  = 1
+  instance_count  = 2
   instance_type   = "t3.micro"
   vol_size        = 10
   key_name        = "mtc_key"
@@ -56,4 +56,5 @@ module "compute" {
   dbuser          = var.dbuser
   dbpassword      = var.dbpassword
   db_endpoint     = module.database.db_endpoint
+  lb_target_group_arn = module.loadbalancing.lb_target_group_arn
 }
